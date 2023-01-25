@@ -39,3 +39,19 @@ describe ("completed functionality", ()=>{
 
 
 });
+
+describe("deleting functionalty", ()=>{
+    it("task should have removed when clicking delete button",()=>{
+        render(<TodosPage/>);
+        addTask("Hi there!");
+        
+        //del butonuna basilinca cikan confirm fonksiyonunu
+        //mocking yaparak hep true donmesini sagladik
+        global.confirm = () => true;
+
+        const listItemEl = screen.getByText(/Hi there!/i);
+        const delButton = screen.getByRole("button", {name: "❌"});
+        userEvent.click(delButton);
+        expect(listItemEl).not.toBeInTheDocument();
+    })
+})
