@@ -27,5 +27,15 @@ describe ("completed functionality", ()=>{
         addTask("Hi there!");
         const listItemEl = screen.getByText(/Hi there!/i);
         expect(listItemEl).not.toHaveClass("completed");
+    });
+
+    it("task should have 'completed' lass when clicking on it", ()=>{
+        render(<TodosPage/>);
+        addTask("Hi there!");
+        const listItemEl = screen.getByText(/Hi there!/i);
+        userEvent.click(listItemEl);
+        expect(listItemEl).toHaveClass("completed");
     })
-})
+
+
+});
