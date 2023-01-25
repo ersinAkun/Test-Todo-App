@@ -11,9 +11,9 @@ const MockTodoHeader = ({ title }) => {
 };
 
 it("should be rendered with given title", () => {
-  render(<MockTodoHeader title="Hello World" />);
-  const headerEl = screen.getByText(/hello world/i);
-  expect(headerEl).toBeInTheDocument();
+  render(<MockTodoHeader title="Hello World" />);  //dom u simule etti sanki calistirildi
+  const headerEl = screen.getByText(/hello world/i); //icinde hello world olan elementi getir
+  expect(headerEl).toBeInTheDocument();             //  
 });
 
 it("should be rendered default title", () => {
